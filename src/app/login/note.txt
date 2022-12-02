@@ -15,4 +15,5 @@ methods
   1.2-> view to component
     1.2.1->Event binding          => (eventname)="methodname()"
     1.2.2->Event binding $event   =>(event name)="methodname($event)"  $event-argument
+    1.2.3->Event binding using template rendering variable  => #variable
     

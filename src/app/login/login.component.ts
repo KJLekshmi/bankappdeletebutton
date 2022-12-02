@@ -17,18 +17,52 @@ export class LoginComponent {
     1002:{acno:1002,username:"malu",password:123,balance:0},
     1003:{acno:1003,username:"meenu",password:123,balance:0}
   }
-  login(){
-    alert('login clicked')
-  }
+  login(a:any,b:any){
+    this.acno=a.value
+    this.pwd=b.value
+    
+    var acno=this.acno
+    var psw=this.pwd
+    var userDetails=this.userDetails
+    if(acno in userDetails){
+      if(psw==userDetails[acno]['password']){
+        alert('Login Success')
+      }
+      else{
+        alert('incorrect password')
+      }
 
-  acnoChange(event:any){
-    this.acno=event.target.value
+    }
+    else{
+      alert('Incorrect Username')
+    }
+    // alert('login clicked')
+  }
+  // login(){
+  //   var acno=this.acno
+  //   var psw=this.pwd
+  //   var userDetails=this.userDetails
+  //   if(acno in userDetails){
+  //     if(psw==userDetails[acno]['password']){
+  //       alert('Login Success')
+  //     }
+  //     else{
+  //       alert('incorrect password')
+  //     }
 
-  }
-  pwdChange(event:any){
-    this.pwd=event.target.value
-  }
+  //   }
+  //   else{
+  //     alert('Incorrect Username')
+  //   }
+  //   // alert('login clicked')
+  // }
+//   acnoChange(event:any){
+//     this.acno=event.target.value
+
+//   }
+//   pwdChange(event:any){
+//     this.pwd=event.target.value
+//   }
 }
-
 
 

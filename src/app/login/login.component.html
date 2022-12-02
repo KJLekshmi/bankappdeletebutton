@@ -3,11 +3,12 @@
         <h2>Login</h2>
         <form>
           <div class="user-box">
-            <input type="text" name="account" required="" [placeholder]="data" id="acid" (change)="acnoChange($event)">
+            <!-- dolar event <input type="text" name="account" required="" [placeholder]="data" id="acid" (change)="acnoChange($event)"> -->
+            <input type="text" name="account" required="" [placeholder]="data" id="acid" #acno>
             <label></label>
           </div>
           <div class="user-box">
-            <input type="password" name="password" required="" placeholder="password" id="pid" (change)="pwdChange($event)">
+            <input type="password" name="password" required="" placeholder="password" id="pid" #psw>
             <label></label>
           </div>
           <!-- <a href="#">
@@ -18,7 +19,7 @@
             Login
           </a> -->
    <div class="text-center mt-2 p-2" id="button">
-            <button type="submit" (click)="login()" class="btn btn-light ">Login</button></div>>
+            <button type="submit" (click)="login(acno,psw)" class="btn btn-light ">Login</button></div>>
   
             <a href="#" class="link">
               <span></span>
