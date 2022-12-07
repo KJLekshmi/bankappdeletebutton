@@ -1,27 +1,22 @@
 <div class="  text-white ms 2 p-3 text-center" ><h1>{{aim}}</h1></div>
     <div class="login-box">
         <h2>Login</h2>
-        <form>
+        <form (ngSubmit)="login()">
           <div class="user-box">
             <!-- dolar event <input type="text" name="account" required="" [placeholder]="data" id="acid" (change)="acnoChange($event)"> -->
-            <input type="text" name="account" required="" [placeholder]="data" id="acid" #acno>
+            <!-- <input type="text" name="account" required="" [placeholder]="data" id="acid" #acno> rendering-->
+            <input type="text" name="account" required="" [placeholder]="data" id="acid" [(ngModel)]="acno" >
             <label></label>
           </div>
           <div class="user-box">
-            <input type="password" name="password" required="" placeholder="password" id="pid" #psw>
+            <input type="password" name="password" required="" placeholder="password" id="pid" [(ngModel)]="psw">
             <label></label>
           </div>
-          <!-- <a href="#">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            Login
-          </a> -->
+          
    <div class="text-center mt-2 p-2" id="button">
-            <button type="submit" (click)="login(acno,psw)" class="btn btn-light ">Login</button></div>>
+            <button type="submit"  class="btn btn-light ">Login</button></div>>
   
-            <a href="#" class="link">
+            <a href="register" class="link">
               <span></span>
               <span></span>
               <span></span>

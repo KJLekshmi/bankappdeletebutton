@@ -1,0 +1,27 @@
+
+ <div class="login-box">
+
+    <form (ngSubmit)="register()">
+      <h2>Registration Form</h2>
+      <div>
+        <div class="user-box">
+          
+          <input type="text" required="" placeholder="Username" name="uname" id="" [(ngModel)]="uname">
+          <label></label>
+        </div>
+        <div class="user-box">
+          <input type="text"  required="" placeholder="Account Number" name="acno" id="" [(ngModel)]="acno" >
+          <label></label>
+        </div>
+        <div class="user-box">
+          <input type="password"  required="" placeholder="Password" name="psw" id="" [(ngModel)]="psw">
+          <label></label>
+        </div>
+        
+  <div class="text-center mt-2 p-2" id="button">
+          <button type="submit"  class="btn btn-light ">submit</button></div>
+    
+ </div>
+ </form>
+ </div>
+

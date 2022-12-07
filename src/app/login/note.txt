@@ -7,8 +7,8 @@ html    -view
 methods
 -------
 
-1-> one way binding
-  data shares only in one direction(comp to view / view to comp)
+1-> One way binding
+   data shares only in one direction(comp to view / view to comp)
   1.1->component to view
      1.1.1->string interpollation => operator {{}}
      1.1.2->property binding      => [property]="value"
@@ -16,4 +16,37 @@ methods
     1.2.1->Event binding          => (eventname)="methodname()"
     1.2.2->Event binding $event   =>(event name)="methodname($event)"  $event-argument
     1.2.3->Event binding using template rendering variable  => #variable
+2-> Two way binding
+    2.1-> ngmodel     [(ngmodel)]="value"
+                       it is a  package in Formsmodule
     
+// redirection in angular is  done by pathdeirectn
+forthis,,app-comp ts-remove applogin -enter router outlet tag
+
+Redirection in angular
+......................
+navigateByUrl - Method used to redirection
+router- it is a predefined cls
+router cls comes in app routing modules
+
+class in akth aan method
+
+
+
+                                            ANGULAR ROUTING CONCEPT
+                                          ............................
+                                    *If we want to use a METHOD OF class inside in another class ,we use a method called DEPENDENCY INJECTION TECH
+                                    *This method injected in constructor
+                                    *=> constructor (access specifier-private/public  argument : Classname )
+
+                                    *In angular routerLink is used commonly than href
+               
+ANGULAR SERVICES
+................
+Angular services are objects that get instantiated just once during the lifetime of an application. 
+They contain methods that maintain data throughout the life of an application,
+ i.e., data is available all the time.
+ *When we create a service only 2 files are created 1.tsfile 2.specification file
+ 
+ *src>app>create a folder-> then open cmd-> ng g s service_name
+                                    
