@@ -4,73 +4,94 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class DataService {
+  currentname=''
+  currentacno=''
 
   constructor() { }
-  userDetails:any={
-    1000:{acno:1000,username:"anu",password:123,balance:0},
-    1001:{acno:1001,username:"anuhul",password:123,balance:0},
-    1002:{acno:1002,username:"malu",password:123,balance:0},
-    1003:{acno:1003,username:"meenu",password:123,balance:0}
+  userDetails: any = {
+    1000: { acno: 1000, username: "anu", password: 123, balance: 0,transaction:[] },
+    1001: { acno: 1001, username: "anuhul", password: 123, balance: 0,transaction:[] },
+    1002: { acno: 1002, username: "malu", password: 123, balance: 0,transaction:[] },
+    1003: { acno: 1003, username: "meenu", password: 123, balance: 0,transaction:[] }
   }
-  register(acno:any,uname:any,psw:any){
-    var userDetails=this.userDetails
-    if(acno in userDetails){
+  register(acno: any, uname: any, psw: any) {
+    var userDetails = this.userDetails
+    if (acno in userDetails) {
       return false
     }
-    else{
-      userDetails[acno]={acno,username:uname,password:psw,balance:0}
+    else {
+      userDetails[acno] = { acno, username: uname, password: psw, balance: 0 ,transaction:[]}
       return true
     }
   }
-  login(acno:any,psw:any){
+  login(acno: any, psw: any) {
     var userDetails=this.userDetails
-    if(acno in userDetails){
-      if(psw==userDetails[acno]['password']){
-       return true
+    var userDetails = this.userDetails
+    if (acno in userDetails) {
+      if (psw == userDetails[acno]['password']) {
+        //acnumbr
+        this.currentacno=acno
+
+        // store username
+        this.currentname=userDetails[acno]['username']
+        return true
       }
-      else{
+      else {
         return false
       }
-  
+
     }
-    else{
+    else {
       return false
     }
-  
+
   }
 
-  deposit(acno:any,password:any,amount:any){
-    var userDetails=this.userDetails
-    var amnt=parseInt(amount)
-    if(acno in userDetails){
-      if(password==userDetails[acno]['password']){
-        userDetails[acno]['balance']+=amnt
+  deposit(acno: any, password: any, amount: any) {
+    var userDetails = this.userDetails
+    var amnt = parseInt(amount)
+    if (acno in userDetails) {
+      if (password == userDetails[acno]['password']) {
+        userDetails[acno]['balance'] += amnt
+        userDetails[acno]['transaction'].push({type:'CREDIT',amount:amnt})
         return userDetails[acno]['balance']
       }
-      else{
+      else {
         return false
       }
     }
-    else{
+    else {
       return false
     }
   }
 
-  withdraw(acno:any,password:any,amount:any){
-    var userDetails=this.userDetails
-    var amnt=parseInt(amount)
-    if(acno in userDetails){
-      if(password==userDetails[acno]['password']){
-        userDetails[acno]['balance']-=amnt
-        return userDetails[acno]['balance']
+  withdraw(acno: any, password: any, amount: any) {
+    var userDetails = this.userDetails
+    var amnt = parseInt(amount)
+    if (acno in userDetails) {
+      if (password == userDetails[acno]['password']) {
+        if (amnt <= userDetails[acno]['balance']) {
+          userDetails[acno]['balance'] -= amnt
+          userDetails[acno]['transaction'].push({type:'DEBIT',amount:amnt})
+          return userDetails[acno]['balance']
+        }
+        else {
+          alert('Insufficient balance')
+        }
       }
-      else{
+      else {
+        alert('incorrect password')
         return false
       }
     }
-    else{
+    else {
+      alert('incorrect account number')
       return false
     }
   }
-  
+  gettransaction(acno:any){
+    return this.userDetails[acno]['transaction']
+
+  }
+
 }

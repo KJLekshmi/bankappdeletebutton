@@ -51,9 +51,10 @@
         </div>
     </div>
 </div> -->
-
+<h1 class="text-white text-center">Welcome {{user}}</h1>
+<a class="p-4 text-white border radius:5px" routerLink="/transaction">View Transaction History</a>
 <div class="login-wrapper">
-    <form action="" class="form">
+    <form action="" class="form " (ngSubmit)="deposit()">
         <h2>DEPOSIT</h2>
         <div class="input-group">
 
@@ -71,12 +72,12 @@
             <input type="text" name="amnt" id="amnt" required="" placeholder="AMOUNT" [(ngModel)]="amnt">
         </div>
 
-        <button type="button" class="btn   p-2" (click)="deposit()">deposit</button>
+        <button type="submit" class="btn   p-2">deposit</button>
     </form>
 
 
 
-    <form action="" class="form ms-5">
+    <form action="" class="form ms-5" (ngSubmit)="withdraw()">
         <H2>WITHDRAWAL</H2>
         <div class="input-group">
 
@@ -96,6 +97,6 @@
 
         </div>
 
-        <button type="button" class="btn  p-2" (click)="withdraw()">WITHDRAW</button>
+        <button type="submit" class="btn  p-2">WITHDRAW</button>
     </form>
 </div>

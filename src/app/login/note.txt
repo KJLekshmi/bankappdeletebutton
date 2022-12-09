@@ -49,4 +49,16 @@ They contain methods that maintain data throughout the life of an application,
  *When we create a service only 2 files are created 1.tsfile 2.specification file
  
  *src>app>create a folder-> then open cmd-> ng g s service_name
-                                    
+
+                                    ANGULAR DIRECTIVIES
+                                 ........................
+                   1.Structural drectivies- to handle structured data in view of a component
+                   * ngFor -can drectly apply in html to access elements from array
+                   
+
+ Form Validation in Angular
+...........................
+*we can create forms in 2 way
+1.Template Driven form
+2.Model Driven form 
+

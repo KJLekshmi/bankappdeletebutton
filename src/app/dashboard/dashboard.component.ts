@@ -11,11 +11,18 @@ export class DashboardComponent {
   acno=''
   psw=''
   amnt=''
+
   acnu=''
   pswd=''
   amont=''
 
-  constructor(private ds:DataService){}
+  user=''
+
+  constructor(private ds:DataService){
+    // access username
+    this.user=this.ds.currentname
+    
+  }
 
   deposit(){
     var acno=this.acno
