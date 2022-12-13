@@ -26,7 +26,7 @@ export class DataService {
   }
   login(acno: any, psw: any) {
     var userDetails=this.userDetails
-    var userDetails = this.userDetails
+    // var userDetails = this.userDetails
     if (acno in userDetails) {
       if (psw == userDetails[acno]['password']) {
         //acnumbr

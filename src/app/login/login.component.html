@@ -1,20 +1,26 @@
 <div class="  text-white ms 2 p-3 text-center" ><h1>{{aim}}</h1></div>
     <div class="login-box">
         <h2>Login</h2>
-        <form (ngSubmit)="login()">
+        <form (ngSubmit)="login()" [formGroup]="loginForm">
           <div class="user-box">
             <!-- dolar event <input type="text" name="account" required="" [placeholder]="data" id="acid" (change)="acnoChange($event)"> -->
             <!-- <input type="text" name="account" required="" [placeholder]="data" id="acid" #acno> rendering-->
-            <input type="text" name="account" required="" [placeholder]="data" id="acid" [(ngModel)]="acno" >
+            <input type="text" name="account" required="" [placeholder]="data" id="acid" formControlName="acno" >
             <label></label>
           </div>
+          <div *ngIf="this.loginForm.get('acno')?.errors && this.loginForm.get('acno')?.touched">
+            <p class="text-danger text-center">incorrect account number</p>
+          </div>
           <div class="user-box">
-            <input type="password" name="password" required="" placeholder="password" id="pid" [(ngModel)]="psw">
+            <input type="password" name="password" required="" placeholder="password" id="pid" formControlName="psw">
             <label></label>
+          </div>
+          <div *ngIf="this.loginForm.get('psw')?.errors && this.loginForm.get('psw')?.touched">
+            <p class="text-danger text-center">invalid password</p>
           </div>
           
    <div class="text-center mt-2 p-2" id="button">
-            <button type="submit"  class="btn btn-light ">Login</button></div>>
+            <button type="submit"  class="btn btn-light ">Login</button></div>
   
             <a href="register" class="link">
               <span></span>

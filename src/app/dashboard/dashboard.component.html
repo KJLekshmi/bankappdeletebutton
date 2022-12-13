@@ -1,75 +1,33 @@
-<!-- <div>
-    
-    <form (ngSubmit)="deposit()">
-        <div class="login-box container w-50 border mt-3 p-3 ">
-                <h2>Deposit</h2>
-                <div>
-                    <div class="user-box">
 
-                        <input type="text" required="" id="dacno" placeholder="Account Number" [(ngModel)]="acno"
-                            name="dacno">
-                        <label></label>
-                    </div>
-                    <div class="user-box">
-                        <input type="password" required="" id="dpsw" placeholder="Password" [(ngModel)]="psw"
-                            name="dpsw">
-                        <label></label>
-                    </div>
-                    <div class="user-box">
-                        <input type="text" required="" id="damt" placeholder="Amount" [(ngModel)]="amnt" name="damnt">
-                        <label></label>
-                    </div>
-                </div>
-
-                <div class="text-center mt-2 p-2" id="button">
-                    <button type="submit" class="btn btn-light ">Deposit</button>
-                </div>
-        </div>
-    </form>
-
-
-    <div class="login-box  border mt- p-3">
-        <h2>Withdrawal</h2>
-        <div>
-            <div class="user-box">
-
-                <input type="text" required="" id="wacno" placeholder="Account Number">
-                <label></label>
-            </div>
-            <div class="user-box">
-                <input type="text" required="" id="wpsw" placeholder="Password">
-                <label></label>
-            </div>
-            <div class="user-box">
-                <input type="password" required="" id="wamt" placeholder="Amount">
-                <label></label>
-            </div>
-
-            <div class="text-center mt-2 p-2" id="button">
-                <button type="submit" class="btn btn-light ">Withdraw</button>
-            </div>
-        </div>
-    </div>
-</div> -->
 <h1 class="text-white text-center">Welcome {{user}}</h1>
 <a class="p-4 text-white border radius:5px" routerLink="/transaction">View Transaction History</a>
 <div class="login-wrapper">
-    <form action="" class="form " (ngSubmit)="deposit()">
+    <form action="" class="form " (ngSubmit)="deposit()" [formGroup]="depositForm">
         <h2>DEPOSIT</h2>
         <div class="input-group">
-
-            <input type="text" name="acno" id="acno" required="" placeholder="ACCOUNT NUMBER" [(ngModel)]="acno">
-
-
+            <input type="text" name="acno" id="acno" required="" placeholder="ACCOUNT NUMBER" formControlName="acno">
         </div>
+        
+            <div *ngIf="this.depositForm.get('acno')?.errors && this.depositForm.get('acno')?.touched">
+                <p class="text-danger fs-4">invalid account number
+                </p>
+            </div>
+       
         <div class="input-group">
 
-            <input type="password" name="psw" id="psw" required="" placeholder="PASSWORD" [(ngModel)]="psw">
+            <input type="password" name="psw" id="psw" required="" placeholder="PASSWORD" formControlName="psw">
 
         </div>
+        <div *ngIf="this.depositForm.get('psw')?.errors && this.depositForm.get('psw')?.touched">
+            <p class="text-danger fs-4">invalid password
+            </p>
+        </div>
         <div class="input-group">
-
-            <input type="text" name="amnt" id="amnt" required="" placeholder="AMOUNT" [(ngModel)]="amnt">
+            <input type="text" name="amnt" id="amnt" required="" placeholder="AMOUNT" formControlName="amnt">
+        </div>
+        <div *ngIf="this.depositForm.get('amnt')?.errors && this.depositForm.get('amnt')?.touched">
+            <p class="text-danger fs-4">invalid amount
+            </p>
         </div>
 
         <button type="submit" class="btn   p-2">deposit</button>
@@ -77,24 +35,32 @@
 
 
 
-    <form action="" class="form ms-5" (ngSubmit)="withdraw()">
+    <form action="" class="form ms-5" (ngSubmit)="withdraw()" [formGroup]="withdrawForm">
         <H2>WITHDRAWAL</H2>
         <div class="input-group">
-
-            <input type="text" name="loginUser" id="loginUser" required="" placeholder="ACCOUNT NUMBER" [(ngModel)]="acnu">
-
-
-        </div>
+            <input type="text" name="loginUser" id="loginUser" required="" placeholder="ACCOUNT NUMBER"
+                formControlName="acnu">
+             </div>
+             <div *ngIf="this.depositForm.get('acnu')?.errors && this.depositForm.get('acnu')?.touched">
+                <p class="text-danger fs-3">invalid account number
+                </p>
+            </div>
         <div class="input-group">
 
-            <input type="password" name="loginPassword" id="loginPassword" required="" placeholder="PASSWORD" [(ngModel)]="pswd">
+            <input type="password" name="loginPassword" id="loginPassword" required="" placeholder="PASSWORD"
+                formControlName="pswd">
 
         </div>
+        <div *ngIf="this.depositForm.get('pswd')?.errors && this.depositForm.get('pswd')?.touched">
+            <p class="text-danger fs-3">invalid password
+            </p>
+        </div>
         <div class="input-group">
-
-            <input type="text" name="loginUser" id="loginUser" required="" placeholder="AMOUNT" [(ngModel)]="amont">
-
-
+            <input type="text" name="loginUser" id="loginUser" required="" placeholder="AMOUNT" formControlName="amont">
+        </div>
+        <div *ngIf="this.depositForm.get('amont')?.errors && this.depositForm.get('amont')?.touched">
+            <p class="text-danger fs-4">invalid amount
+            </p>
         </div>
 
         <button type="submit" class="btn  p-2">WITHDRAW</button>

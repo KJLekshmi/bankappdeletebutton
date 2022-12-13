@@ -1,21 +1,30 @@
 
  <div class="login-box">
 
-    <form (ngSubmit)="register()">
+    <form (ngSubmit)="register()"[formGroup]="registerForm">
       <h2>Registration Form</h2>
       <div>
         <div class="user-box">
           
-          <input type="text" required="" placeholder="Username" name="uname" id="" [(ngModel)]="uname">
+          <input type="text" required="" placeholder="Username" name="uname" id="" formControlName="uname" >
           <label></label>
         </div>
-        <div class="user-box">
-          <input type="text"  required="" placeholder="Account Number" name="acno" id="" [(ngModel)]="acno" >
-          <label></label>
+        <div *ngIf="this.registerForm.get('uname')?.errors && this.registerForm.get('uname')?.touched">
+          <p class="text-danger text-center">invalid username</p>
         </div>
         <div class="user-box">
-          <input type="password"  required="" placeholder="Password" name="psw" id="" [(ngModel)]="psw">
+          <input type="text"  required="" placeholder="Account Number" name="acno" id="" formControlName="acno"  >
           <label></label>
+        </div>
+        <div *ngIf="this.registerForm.get('acno')?.errors && this.registerForm.get('acno')?.touched">
+          <p class="text-danger text-center">incorrect account number</p>
+        </div>
+        <div class="user-box">
+          <input type="password"  required="" placeholder="Password" name="psw" id="" formControlName="psw">
+          <label></label>
+        </div>
+        <div *ngIf="this.registerForm.get('psw')?.errors && this.registerForm.get('psw')?.touched">
+          <p class="text-danger text-center">invalid password</p>
         </div>
         
   <div class="text-center mt-2 p-2" id="button">

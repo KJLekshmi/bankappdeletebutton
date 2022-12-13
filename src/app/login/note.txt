@@ -54,6 +54,8 @@ They contain methods that maintain data throughout the life of an application,
                                  ........................
                    1.Structural drectivies- to handle structured data in view of a component
                    * ngFor -can drectly apply in html to access elements from array
+
+                  -> *ngIf-for condition checking in html
                    
 
  Form Validation in Angular
@@ -61,4 +63,28 @@ They contain methods that maintain data throughout the life of an application,
 *we can create forms in 2 way
 1.Template Driven form
 2.Model Driven form 
+   *Reactive form
+   -------------
+
+   ReactiveFormsmodule-module used for create model forms
+   FormBuilder - class of ReactiveFormsmodule
+      -when create model form It includes GROUP,ARRAY,CONTROL
+      -
+
+Validate Model Form
+....................
+ for this we use a class in angular called - validator,it includes methods for apply Validation
+ -> Access errors in validator routerLink
+   code- this.modalForm.get('uname')?.errors  (.error is a method to get output which followed by the rules not error)
+       o/p maybe
+           -valid error -should be empyty response
+           -invalid errors-content
+
+Local Storage in Angular
+........................
+store- localStorage.getItem()
+access- localStorage.setItem()
+delete-localStorage.removeItem()
+
+
 
