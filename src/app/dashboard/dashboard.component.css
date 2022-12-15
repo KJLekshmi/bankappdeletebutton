@@ -24,6 +24,8 @@ text-align: center;}
   border-radius: 10px;
   color: #fff;
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.485);
+  height: 65%;
+  margin-bottom: 12%;
 }
 /* .form::before {  */
 .form img {
@@ -120,7 +122,11 @@ button:hover{
   text-decoration: none;
   color: inherit;
 }
-
-/* @media (orientation:portrait){
-  .login-wrapper
+/* 
+@media (orientation:portrait){
+   .login-wrapper{
+    display: flex;
+    flex-direction: column;
+    
+  }
 } */

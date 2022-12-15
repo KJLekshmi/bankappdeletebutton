@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { DataService } from '../services/data.service';
 
 @Component({
@@ -8,18 +9,21 @@ import { DataService } from '../services/data.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent {
-  [x: string]: any;
-  acno=''
-  psw=''
-  amnt=''
+  // [x: string]: any;
+  // acno=''
+  // psw=''
+  // amnt=''
 
-  acnu=''
-  pswd=''
-  amont=''
-
+  // acnu=''
+  // pswd=''
+  // amont=''
+ dateandtime:any
+  acno:any
   user=''
 
-  constructor(private ds:DataService,private fb:FormBuilder){
+  constructor(private ds:DataService,private fb:FormBuilder,private router:Router){
+    this.dateandtime=new Date()
+    
     // access username
     this.user=this.ds.currentname
     
@@ -32,6 +36,13 @@ export class DashboardComponent {
   withdrawForm=this.fb.group({acnu:['',[Validators.required,Validators.pattern('[0-9]+')]],
   pswd:['',[Validators.required,Validators.pattern('[0-9]+')]],
   amont:['',[Validators.required,Validators.pattern('[0-9]+')]]})
+
+  ngOnInit(): void{
+    if(!localStorage.getItem('currentname')){
+      alert('login first')
+      this.router.navigateByUrl('')
+    }
+  }
   
   deposit(){
     var acno=this.depositForm.value.acno
@@ -67,5 +78,15 @@ export class DashboardComponent {
       alert('Incorrect password or username')
     }
 
+  }
+
+  logout(){
+    localStorage.removeItem('currentname')
+    localStorage.removeItem('currentacno')
+    this.router.navigateByUrl('')
+  }
+  deleteconfirm(){
+
+    this.acno=JSON.parse(localStorage.getItem('currentacno') || '')
   }
 }

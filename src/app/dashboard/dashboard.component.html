@@ -1,7 +1,13 @@
 
 <h1 class="text-white text-center">Welcome {{user}}</h1>
-<a class="p-4 text-white border radius:5px" routerLink="/transaction">View Transaction History</a>
-<div class="login-wrapper">
+<h6 class="text-white text-center me-3 p-4">{{dateandtime | date: 'short'}}</h6>
+<a class="p-4 text-white border radius:5px mt-5" routerLink="/transaction">View Transaction History</a>
+
+<button type="submit" (click)="logout()" class="btn  p-2 me-5 text-white bg bg-danger">LogOut</button>
+<button type="submit"  (click)="deleteconfirm()" class="btn  p-2 me-5  mt-3 text-dark bg bg-light">delete</button>
+<app-deleteconfirm [item]="acno"></app-deleteconfirm>
+
+<div class="login-wrapper" [ngClass]="acno?'style':''">
     <form action="" class="form " (ngSubmit)="deposit()" [formGroup]="depositForm">
         <h2>DEPOSIT</h2>
         <div class="input-group">

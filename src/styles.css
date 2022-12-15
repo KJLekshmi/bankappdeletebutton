@@ -30,3 +30,7 @@
     font-family: sans-serif;
     background: linear-gradient(to right);
   }
+
+  .style{
+    opacity: 0;
+  }

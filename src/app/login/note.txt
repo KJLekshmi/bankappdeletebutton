@@ -52,10 +52,15 @@ They contain methods that maintain data throughout the life of an application,
 
                                     ANGULAR DIRECTIVIES
                                  ........................
+                                 used to manage  DOM in angular
                    1.Structural drectivies- to handle structured data in view of a component
-                   * ngFor -can drectly apply in html to access elements from array
+                  -> *ngFor -can drectly apply in html to access elements from array
 
                   -> *ngIf-for condition checking in html
+                  
+                  2.Component Directive-googleit veryimp
+                  3.Attributive Directive-used for apply attributive in dom
+                                         -[ngClass]
                    
 
  Form Validation in Angular
@@ -85,6 +90,18 @@ Local Storage in Angular
 store- localStorage.getItem()
 access- localStorage.setItem()
 delete-localStorage.removeItem()
+
+Parent Child Components Communication in Angular
+................................................
+
+
+
+Date in Angular
+...............
+date -class (alrdy und)
+
+-create an object of class Date to access date and time 
+
 
 
 
